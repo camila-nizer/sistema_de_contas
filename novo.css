@@ -1,0 +1,573 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #ebebeb;
+}
+
+/* HEADER DO SISTEMA */
+header {
+    background-color: #000;
+    padding: 3px;
+    font-size: 20px;
+}
+
+.title {
+    margin-left: 10px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+/* SEGURA SALDO E RECEITA */
+.fora1 {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+}
+
+.total {
+    width: 46%;
+    margin: auto;
+    background-color: #fff;
+    display: flex;
+    color: #000;
+    justify-content: space-between;
+    border-radius: 6px;
+    box-shadow: 0px 0px 1px #000;
+}
+
+/* agrupa titulo e valor */
+.s1 {
+    display: flex;
+    flex-direction: column;
+    padding: 17px 13px;
+    border-radius: 6px;
+}
+
+/* titulo */
+.s2 {
+    margin: auto;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+
+.valor {
+    padding: 4px;
+    margin: auto;
+    font-size: 18px;
+    border-radius: 6px;
+}
+
+.valor:hover {
+    background-color: #000000d8;
+    transition: 0.5s;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* SEGURA DATA E REGISTROS */
+.fora2 {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+}
+
+/* AGRUPA INPUTS DA DATA */
+.data {
+    padding: 10px 1px 5px 1px;
+    width: 7%;
+    margin: auto;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0px 0px 1px #000;
+    border-radius: 6px;
+}
+
+.cent {
+    width: 100%;
+}
+
+/* arruma o espaçamento dos inputs data */
+.linha {
+    display: flex;
+    margin-top: 13px;
+}
+
+.linha:first-child {
+    margin-top: 3px;
+}
+
+.linha:last-of-type {
+    margin-bottom: 15px;
+}
+
+.but1 {
+    letter-spacing: 1px;
+    padding: 6px 1px;
+    font-size: 12px;
+    border-radius: 6px;
+    width: 90%;
+    margin: auto;
+    background-color: #000;
+    color: #fff;
+}
+
+.but1:hover {
+    background-color: #000000b6;
+    color: #fff;
+}
+
+/*--------------------------*/
+
+/* EXPOSIÇÃOREGISTROS DO BANCO DE DADOS */
+.registros {
+    width: 95%;
+    background-color: #fff;
+    margin: auto;
+    padding-bottom: 20px;
+    box-shadow: 0px 0px 1px #000;
+    border-radius: 6px;
+}
+
+/* 'botoes' paginas */
+.fora3 {
+    width: 100%;
+    background-color: #d8d7d7;
+    color: #000;
+    border-radius: 6px 6px 0px 0px;
+    margin-bottom: 10px;
+    border: 1px 1px 0px 1px solid;
+}
+
+/* alinha 'botoes' */
+.tipo {
+    display: flex;
+    width: 90%;
+}
+
+/* 'botao' */
+.nome {
+    padding: 8px;
+    width: 17.5%;
+    font-size: 17px;
+    text-align: center;
+    letter-spacing: 0.8px;
+}
+
+.nome:first-child:hover {
+    border-radius: 6px 0px 0px 0px;
+}
+
+.nome:hover {
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+
+.a1 {
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
+
+/* id para pagina ativa */
+#pag-ativa {
+    background-color: #fff;
+    color: #000;
+    border-radius: 6px 0px 0px 0px;
+}
+
+#pag-ativa2 {
+    background-color: #fff;
+    color: #000;
+    border-radius: 0px 0px 0px 0px;
+}
+
+
+/* fundo da exibição dos registros */
+.fora4 {
+    padding: 0px;
+    width: 97%;
+    max-height: 300px;
+    overflow-y: scroll;
+    background-color: #d8d7d7;
+    margin: auto;
+    border-radius: 6px;
+}
+
+@media(max-width:1090px) {
+    .fora4 {
+        overflow-x: scroll;
+    }
+
+    .nome {
+        letter-spacing: 0px;
+        font-size: 13px;
+    }
+}
+
+/*margin pra registros*/
+.marg {
+    margin-bottom: 10.5px;
+    display: flex;
+    width: 100%;
+}
+
+.marg:first-child {
+    margin-top: 4px;
+}
+
+.marg:last-of-type {
+    margin-bottom: 0px;
+}
+
+/* alinhar registro com input de exclusão */
+.fora5 {
+    display: flex;
+    padding-left: 2px;
+    width: 98%;
+    margin: auto;
+    justify-content: space-between;
+}
+
+/* exposição da tupla */
+.expor {
+    padding: 10px;
+    margin: auto;
+    display: flex;
+    width: 98%;
+    font-size: 17px;
+    min-width: 858px;
+    color: #000;
+    background-color: #fff;
+}
+
+@media(max-width:1190px) {
+    .expor {
+        font-size: 15px;
+    }
+}
+
+/* input para exclusão*/
+.inp {
+    width: 2%;
+}
+
+input[type="checkbox"] {
+    margin-right: 3px;
+    transform: translate(-1px, 10px);
+    appearance: none;
+    color: #fff;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    display: grid;
+    background-color: #fff;
+    place-content: center;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    transform: scale(0);
+    transition: 0.1s transform ease-in-out;
+    background-color: #000;
+    border: 1px solid #fff;
+    border-radius: 50%;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+/*--------------------------*/
+
+
+input[id='data']:after {
+    padding: 6px 0px;
+    text-align: center;
+    width: 75px;
+    left: -31px;
+    position: relative;
+    background-color: #D9D9D9;
+    display: inline-block;
+    border: 0px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+input[value="001"]:after {
+    content: 'Janeiro';
+}
+
+input[value="002"]:after {
+    content: 'Fevereiro';
+}
+
+input[value="003"]:after {
+    content: 'Março';
+}
+
+input[value="004"]:after {
+    content: 'Abril';
+}
+
+input[value="005"]:after {
+    content: 'Maio';
+}
+
+input[value="006"]:after {
+    content: 'Junho';
+}
+
+input[value="007"]:after {
+    content: 'Julho';
+}
+
+input[value="008"]:after {
+    content: 'Agosto';
+}
+
+input[value="009"]:after {
+    content: 'Setembro';
+}
+
+input[value="010"]:after {
+    content: 'Outubro';
+}
+
+input[value="011"]:after {
+    content: 'Novembro';
+}
+
+input[value="012"]:after {
+    content: 'Dezembro';
+}
+
+input[id='data']:checked:after {
+    position: relative;
+    color: #fff;
+    background-color: #000;
+}
+
+/* RESPONSIVIDADE */
+/* INPUT RADIO EM TELA PEQUENA */
+@media(max-width: 1210px) {
+
+
+    input[type='radio']:after {
+        width: 40px;
+        left: -13px;
+    }
+
+    input[value="001"]:after {
+        content: 'Jan';
+    }
+
+    input[value="002"]:after {
+        content: 'Fev';
+    }
+
+    input[value="003"]:after {
+        content: 'Mar';
+    }
+
+    input[value="004"]:after {
+        content: 'Abr';
+    }
+
+    input[value="005"]:after {
+        content: 'Mai';
+    }
+
+    input[value="006"]:after {
+        content: 'Jun';
+    }
+
+    input[value="007"]:after {
+        content: 'Jul';
+    }
+
+    input[value="008"]:after {
+        content: 'Ago';
+    }
+
+    input[value="009"]:after {
+        content: 'Set';
+    }
+
+    input[value="010"]:after {
+        content: 'Out';
+    }
+
+    input[value="011"]:after {
+        content: 'Nov';
+    }
+
+    input[value="012"]:after {
+        content: 'Dez';
+    }
+}
+
+/* INPUT RADIO EM TELA GRANDE */
+@media(min-width: 1500px) {
+    .data {
+        width: 95px;
+    }
+}
+
+/* TESTE BOTÕES */
+.fora6 {
+    display: flex;
+    justify-content: space-between;
+    width: 97%;
+    margin: auto;
+}
+
+.t1 {
+    width: 50%;
+    overflow: hidden;
+}
+
+.t2 {
+    width: 50%;
+    overflow: hidden;
+    text-align: end;
+}
+
+.final {
+    width: 20%;
+    margin-top: 10px;
+    margin-bottom: 6px;
+    padding: 5px;
+    border-radius: 6px;
+    background-color: #D9D9D9;
+}
+
+.final:hover {
+    background-color: #000;
+    color: #fff;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/* SELECT */
+select[name="ano"] {
+    display: block;
+    width: 75%;
+    text-align: center;
+    margin: auto;
+    height: 25px;
+    font-size: 15px;
+    line-height: 1.75;
+    color: #000;
+    background-color: #ffffff;
+    -ms-word-break: normal;
+    word-break: normal;
+}
+
+/* CADASTRO DE CLIENTES */
+.fora7 {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.cadastro {
+    background-color: #fff;
+    width: 45%;
+    margin: auto;
+    box-shadow: 0px 0px 1px #000;
+    border-radius: 6px;
+    padding-bottom: 10px;
+}
+
+.cadastro:nth-child(2) {
+    margin-top: 0px;
+}
+
+
+.cad {
+    background-color: #D9D9D9;
+    padding: 10px;
+    text-align: center;
+    border-radius: 6px 6px 0px 0px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.formcadastro {
+    width: 80%;
+    margin: auto;
+    padding: 5px;
+    border-radius: 6px;
+    background-color: #D9D9D9;
+}
+
+.formc {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.formc input {
+    border: 0.1px solid #000;
+    border-radius: 6px;
+    padding: 3px;
+    font-family: Arial, sans-serif;
+    width: 100%;
+}
+
+.inputcadastro {
+    width: 50%;
+}
+
+select[name="tipo_de_conta"],
+select[name="registro"],
+select[name="forma_pagamento"],
+select[name="id_cliente"] {
+    border: 0.1px solid #000;
+    border-radius: 6px;
+    padding: 3px;
+    font-family: Arial, sans-serif;
+    width: 103%;
+}
+
+select[name="tipo_de_conta"]:focus,
+select[name="registro"]:focus,
+select[name="forma_pagamento"]:focus,
+select[name="id_cliente"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0px 1px 2px #7c7c7c;
+}
+
+.info {
+    width: 40%;
+}
+
+.centcadastro {
+    width: 95%;
+    margin: auto;
+}
+
+input[id="pag"] {
+    cursor: pointer;
+    background: none;
+}
+
+
+/* EXIBIÇÃO REGISTROS */
+
