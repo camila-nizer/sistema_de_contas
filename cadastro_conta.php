@@ -6,7 +6,6 @@
         $id_cliente_fk=$_POST['id_cliente'];
         $descricao=$_POST ['descricao'];
         $vencimento=$_POST['vencimento'];
-        $data_recebimento='';
         $valor=$_POST['valor'];
         $forma_pagamento=$_POST['forma_pagamento'];
         $status_pagamento='Pendente';
@@ -16,8 +15,8 @@
 
     	
 
-        $sql="INSERT INTO contas (id_cliente_fk, descricao, vencimento, data_recebimento, valor, forma_pagamento, status_pagamento, tipo_de_conta,status_conta) 
-                VALUES ('$id_cliente_fk', '$descricao', '$vencimento','$data_recebimento','$valor', '$forma_pagamento','$status_pagamento','$tipo_de_conta','$status_conta')";
+        $sql="INSERT INTO contas (id_cliente_fk, descricao, vencimento, valor, forma_pagamento, status_pagamento, tipo_de_conta,status_conta) 
+                VALUES ('$id_cliente_fk', '$descricao', '$vencimento','$valor', '$forma_pagamento','$status_pagamento','$tipo_de_conta','$status_conta')";
 
 
         if(mysqli_query($conexao, $sql)){

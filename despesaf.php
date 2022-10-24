@@ -169,6 +169,19 @@
                     $status_pagamento = $registro['status_pagamento'];
                     $tipo_de_conta = $registro['tipo_de_conta'];
 
+                    $vencimento=date_create($vencimento);
+                    $vencimento=date_format($vencimento,'d-m-Y');
+
+                    if($data_recebimento != '' && $data_recebimento != null){
+
+                        $data_recebimento=date_create($data_recebimento);
+                        $data_recebimento=date_format($data_recebimento,'d-m-Y');
+
+                    }
+                    else{
+                        $data_recebimento="--";
+                    }
+
                     echo "<div class='marg'><div class='fora5'><div class='expor'>";
                     echo  $nome;
                     echo  $cpf_cnpj;
