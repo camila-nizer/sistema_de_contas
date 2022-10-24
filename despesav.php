@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Contas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="novo.css">
+    <link rel="stylesheet" href="style.css">
     <script>
         function limpa_formulário_cep() {
             document.getElementById('rua').value = ("");
@@ -106,7 +106,7 @@
         <div class="registros">
             <div class="fora3">
                 <form class="tipo" action="#" method="get">
-                <div class="nome">
+                    <div class="nome">
                         <?php
                         echo "<a href='index.php'>";
                         ?>
@@ -148,7 +148,28 @@
                     </div>
                 </form>
             </div>
-            
+
+            <div class="fora4" id="tabela">
+                <div class="marg">
+                    <div class="expor" id="cabecalho">
+                        <div class="inforeg">Nome</div>
+                        <div class="inforeg">CPF/CNPJ</div>
+                        <div class="inforeg">Descrição</div>
+                        <div class="inforeg">Vencimento</div>
+                        <div class="inforeg">Recebimento</div>
+                        <div class="inforeg">Valor</div>
+                        <div class="inforeg">Forma de pagamento</div>
+                        <div class="inforeg">Status</div>
+                        <div class="inforeg">
+                            <div class="hidden">1</div>
+                        </div>
+                        <div class="inforeg">
+                            <div class="hidden">1</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="fora4">
                 <?php
                 include("conexao.php");
@@ -169,51 +190,39 @@
                     $status_pagamento = $registro['status_pagamento'];
                     $tipo_de_conta = $registro['tipo_de_conta'];
 
-                    $vencimento=date_create($vencimento);
-                    $vencimento=date_format($vencimento,'d-m-Y');
+                    $vencimento = date_create($vencimento);
+                    $vencimento = date_format($vencimento, 'd-m-Y');
 
-                    if($data_recebimento != '' && $data_recebimento != null){
+                    if ($data_recebimento != '' && $data_recebimento != null) {
 
-                        $data_recebimento=date_create($data_recebimento);
-                        $data_recebimento=date_format($data_recebimento,'d-m-Y');
-
-                    }
-                    else{
-                        $data_recebimento="--";
+                        $data_recebimento = date_create($data_recebimento);
+                        $data_recebimento = date_format($data_recebimento, 'd-m-Y');
+                    } else {
+                        $data_recebimento = "--";
                     }
 
-                    echo "<div class='marg'><div class='fora5'><div class='expor'>";
-                    echo  $nome;
-                    echo  $cpf_cnpj;
-                    echo  $descricao;
-                    echo  $vencimento;
-                    echo  $data_recebimento;
-                    echo  $valor;
-                    echo  $forma_pagamento;
-                    echo  $status_pagamento;
-                    echo  " <form action='confirma_conta_paga.php' method='GET'> <button><input type='hidden' name='opcao' value='$id_contas'/>PAGO</button></form>";
-                    echo "<form action='confirma_apagar_conta.php' method='GET'> <button><input type='hidden' name='opcao' value='$id_contas'/>APAGAR REGISTRO</button></form>";
+                    echo "<div class='marg'><div class='fora5'><div class='expor'><div class='inforeg2'>";
+                    echo  $nome . "</div><div class='inforeg2'>";
+                    echo  $cpf_cnpj . "</div><div class='inforeg2'>";
+                    echo  $descricao . "</div><div class='inforeg2'>";
+                    echo  $vencimento . "</div><div class='inforeg2'>";
+                    echo  $data_recebimento . "</div><div class='inforeg2'>";
+                    echo  $valor . "</div><div class='inforeg2'>";
+                    echo  $forma_pagamento . "</div><div class='inforeg2'>";
+                    echo  $status_pagamento . "</div><div class='inforeg2'>";
+                    echo  " <form action='confirma_conta_paga.php' method='GET'> <button class='pagar' id='pago'><input type='hidden' name='opcao' value='$id_contas'/>Pago<i class='fa fa-check-circle' style='font-size:15px; margin-left:5px';></i></button></form></div><div class='inforeg2'>";
+                    echo "<form action='confirma_apagar_conta.php' method='GET'> <button class='pagar'id='excluir'><input type='hidden' name='opcao' value='$id_contas'/>Excluir Registro<i class='fa fa-minus-circle' style='font-size:15px; margin-left:5px';></i></button></form></div>";
                     echo "</div> </div> </div>";
                 }
 
                 mysqli_close($conexao);
 
                 ?>
-                <div class="marg">
-                    <div class="fora5">
-                        <div class="expor">
-                            <!--Nome cliente / adsadasd / Descrição
-                            / Vencimento / Recebimento / Valor / Forma de
-                            pagamento / Status-->
-                        </div>
-                    </div>
-                </div>
-                
+
             </div>
         </div>
 
     </div>
-
 
     <div class="fora7">
         <div class="cadastro">
@@ -280,7 +289,7 @@
                         <div class="formc">
                             <div class="info"><label for="">Tipo de Conta:</label></div>
                             <div class="inputcadastro">
-                                <select name="tipo_conta" required>
+                                <select id="sel" name="tipo_conta" required>
                                     <option value="poupança">Poupança</option>
                                     <option value="corrente">Corrente</option>
                                 </select>
@@ -288,7 +297,9 @@
                         </div>
                     </div>
                 </div>
-                <input class="final" type="submit" name="vazio" value="Cadastrar">
+                <div class="marge">
+                    <input class="final" type="submit" name="vazio" value="Cadastrar" />
+                </div>
             </form>
         </div>
 
@@ -300,7 +311,7 @@
                         <div class="formc">
                             <div class="info"><label for="">Cliente:</label></div>
                             <div class="inputcadastro">
-                                <select name="id_cliente">
+                                <select id="sel" name="id_cliente">
                                     <?php
                                     include('conexao.php');
 
@@ -331,7 +342,7 @@
                         <div class="formc">
                             <div class="info"><label for="">Forma de pagamento:</label></div>
                             <div class="inputcadastro">
-                                <select name="forma_pagamento">
+                                <select id="sel" name="forma_pagamento">
                                     <option value="pix/ted/doc">PIX/TED/DOC</option>
                                     <option value="boleto">Boleto</option>
                                     <option value="cartao_credito">Cartão de Crédito</option>
@@ -342,7 +353,7 @@
                         <div class="formc">
                             <div class="info"><label for="">Tipo de Registro:</label></div>
                             <div class="inputcadastro">
-                                <select name="tipo_de_conta">
+                                <select id="sel" name="tipo_de_conta">
                                     <option value="receita">Receita</option>
                                     <option value="despesa_fixa">Despesa Fixa</option>
                                     <option value="despesa_variavel">Despesa Variável</option>
@@ -352,11 +363,14 @@
 
                     </div>
                 </div>
-                <input class="final" type="submit" name="vazio" value="Cadastrar" />
+                <div class="marge">
+                    <input class="final" type="submit" name="vazio" value="Cadastrar" />
+                </div>
             </form>
         </div>
 
     </div>
+
 
 </body>
 

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Out-2022 às 02:20
--- Versão do servidor: 10.4.24-MariaDB
--- versão do PHP: 8.1.6
+-- Tempo de geração: 24-Out-2022 às 15:29
+-- Versão do servidor: 10.4.25-MariaDB
+-- versão do PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -53,9 +53,9 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id_cliente`, `nome`, `cpf_cnpj`, `cep`, `rua`, `numero_casa`, `bairro`, `cidade`, `estado`, `telefone`, `celular`, `email`, `banco`, `agencia`, `conta`, `tipo_conta`, `status_cliente`, `exclusao_cliente`) VALUES
-(1, 'camila', '21474836471', 88132149, 'Avenida Atílio Pedro Pagani', '1243', 'Pagani', 'Palhoça', 'SC', 11111, 1111, '11111@11111', 1111, 1111, 1111, 'poupança', 'ativo', '0000-00-00 00:00:00'),
-(2, 'papapa', '11111111111', 88132149, 'Avenida Atílio Pedro Pagani', '12', 'Pagani', 'Palhoça', 'SC', 2147483647, 2147483647, 'sdasd@gm', 0, 12312312, 23123123, 'corrente', 'ativo', '0000-00-00 00:00:00'),
-(3, 'shaushasuahsuahs', '11111111122', 88132149, 'Avenida Atílio Pedro Pagani', '1111', 'Pagani', 'Palhoça', 'SC', 1111, 1, '111@1111', 11111, 1111, 111, 'corrente', 'ativo', '0000-00-00 00:00:00');
+(1, 'FMP', '00000000000', 88130475, 'R. João Pereira dos Santos', '305', 'Pte. do Imaruim', 'Palhoça', 'SC', 32200376, 0, 'contato@fmpsc.edu.br ', 0, 0, 0, 'corrente', 'ativo', '0000-00-00 00:00:00'),
+(2, 'Prefeitura Palhoça', '1111111111111', 88130000, 'Av. Hilza Terezinha Pagani', '280', 'Pagani', 'Palhoça', 'SC', 32200300, 32200300, 'pmp@palhoca.sc.gov.br', 1, 1, 1, 'corrente', 'ativo', '0000-00-00 00:00:00'),
+(3, 'Cliente 2', '22222222222', 22222222, 'Avenida 2', '2', 'Bairro 2', 'Cidade 2', 'Estado 2', 22222222, 22222222, 'cliente2@gmail.com', 2, 2, 2, 'corrente', 'ativo', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -68,7 +68,7 @@ CREATE TABLE `contas` (
   `id_cliente_fk` int(11) NOT NULL,
   `descricao` text NOT NULL,
   `vencimento` date NOT NULL,
-  `data_recebimento` datetime NOT NULL,
+  `data_recebimento` datetime DEFAULT NULL,
   `valor` float NOT NULL,
   `forma_pagamento` text NOT NULL,
   `status_pagamento` text NOT NULL,
@@ -82,16 +82,7 @@ CREATE TABLE `contas` (
 --
 
 INSERT INTO `contas` (`id_contas`, `id_cliente_fk`, `descricao`, `vencimento`, `data_recebimento`, `valor`, `forma_pagamento`, `status_pagamento`, `tipo_de_conta`, `status_conta`, `exclusao_conta`) VALUES
-(1, 1, 'aaaaaa', '2022-10-23', '0000-00-00 00:00:00', 50, 'boleto', 'pendente', 'receita', 'ativo', '0000-00-00 00:00:00'),
-(2, 1, 'aaaaaa', '2022-10-23', '0000-00-00 00:00:00', 500, 'boleto', 'pendente', 'despesa_fixa', 'ativo', '0000-00-00 00:00:00'),
-(3, 1, 'aaaaaa', '2022-10-23', '0000-00-00 00:00:00', 1200, 'boleto', 'pendente', 'despesa_variavel', 'ativo', '0000-00-00 00:00:00'),
-(4, 1, 'aaaaaaa', '2022-10-26', '0000-00-00 00:00:00', 45, 'boleto', 'pendente', 'receita', 'ativo', '0000-00-00 00:00:00'),
-(5, 3, 'aaaaaaaa', '2022-10-24', '0000-00-00 00:00:00', 45, 'boleto', 'pendente', 'receita', 'ativo', '0000-00-00 00:00:00'),
-(6, 3, 'asasasasa', '2022-11-01', '0000-00-00 00:00:00', 5000, 'boleto', 'pendente', 'receita', 'ativo', '0000-00-00 00:00:00'),
-(7, 2, 'SADAASDASD', '2022-10-27', '0000-00-00 00:00:00', 10000, 'boleto', 'pendente', 'receita', 'ativo', '0000-00-00 00:00:00'),
-(8, 1, '4WQRRWQWER', '2022-10-28', '0000-00-00 00:00:00', 1000, 'pix/ted/doc', 'pendente', 'receita', 'ativo', '0000-00-00 00:00:00'),
-(9, 2, 'dsdsadah', '2022-10-24', '0000-00-00 00:00:00', 3, 'boleto', 'Pendente', 'despesa_fixa', 'ativo', '0000-00-00 00:00:00'),
-(10, 1, 'aaaaaaa', '2022-11-02', '0000-00-00 00:00:00', 1.2, 'pix/ted/doc', 'Pendente', 'receita', 'ativo', '0000-00-00 00:00:00');
+(1, 1, '--', '2022-10-25', NULL, 100, 'cartao_credito', 'Pendente', 'despesa_fixa', 'ativo', '0000-00-00 00:00:00');
 
 --
 -- Índices para tabelas despejadas
@@ -124,7 +115,7 @@ ALTER TABLE `cliente`
 -- AUTO_INCREMENT de tabela `contas`
 --
 ALTER TABLE `contas`
-  MODIFY `id_contas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_contas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restrições para despejos de tabelas

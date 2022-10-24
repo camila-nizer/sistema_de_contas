@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Contas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="novo.css">
+    <link rel="stylesheet" href="style.css">
     <script>
         function limpa_formulário_cep() {
             document.getElementById('rua').value = ("");
@@ -148,6 +148,26 @@
                     </div>
                 </form>
             </div>
+
+            <div class="fora4" id="tabela">
+                <div class="marg">
+                    <div class="expor" id="cabecalho">
+                        <div class="inforeg">Nome</div>
+                        <div class="inforeg">CPF/CNPJ</div>
+                        <div class="inforeg">Bairro</div>
+                        <div class="inforeg">Cidade</div>
+                        <div class="inforeg">Telefone</div>
+                        <div class="inforeg">Celular</div>
+                        <div class="inforeg">Email</div>
+                        <div class="inforeg">Banco</div>
+                        <div class="inforeg">Conta</div>
+                        <div class="inforeg">
+                            <div class="hidden">1</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="fora4">
                 <?php
                 include("conexao.php");
@@ -173,24 +193,17 @@
                     $conta = $registro['conta'];
                     $tipo_conta = $registro['tipo_conta'];
 
-
-                    echo "<div class='marg'><div class='fora5'><div class='expor'>";
-                    echo $nome;
-                    echo $cpf_cnpj;
-                    echo $cep;
-                    echo $rua;
-                    echo $numero_casa;
-                    echo $bairro;
-                    echo $cidade;
-                    echo $estado;
-                    echo $telefone;
-                    echo $celular;
-                    echo $email;
-                    echo $banco;
-                    echo $agencia;
-                    echo $conta;
-                    echo $tipo_conta;
-                    echo "<form action='confirma_apagar_cliente.php' method='GET'> <button><input type='hidden' name='opcao' value='$id_cliente'/>EXCLUIR CLIENTE</button></form>";
+                    echo "<div class='marg'><div class='fora5'><div class='expor'><div class='inforeg3'>";
+                    echo $nome . "</div><div class='inforeg3'>";
+                    echo $cpf_cnpj . "</div><div class='inforeg3'>";
+                    echo $bairro . "</div><div class='inforeg3'>";
+                    echo $cidade . "</div><div class='inforeg3'>";
+                    echo $telefone . "</div><div class='inforeg3'>";
+                    echo $celular . "</div><div class='inforeg3'>";
+                    echo $email . "</div><div class='inforeg3'>";
+                    echo $banco . "</div><div class='inforeg3'>";
+                    echo $tipo_conta . "</div><div class='inforeg3'>";
+                    echo "<form action='confirma_apagar_cliente.php' method='GET'> <button class='pagar'id='excluir'><input type='hidden' name='opcao' value='$id_cliente'/>Excluir<i class='fa fa-minus-circle' style='font-size:15px; margin-left:5px';></i></button></form></div>";
                     echo "</div> </div> </div>";
                 }
 
@@ -199,6 +212,7 @@
             </div>
         </div>
     </div>
+
     <div class="fora7">
         <div class="cadastro">
             <div class="cad">Cadastrar Cliente</div>
@@ -264,7 +278,7 @@
                         <div class="formc">
                             <div class="info"><label for="">Tipo de Conta:</label></div>
                             <div class="inputcadastro">
-                                <select name="tipo_conta" required>
+                                <select id="sel" name="tipo_conta" required>
                                     <option value="poupança">Poupança</option>
                                     <option value="corrente">Corrente</option>
                                 </select>
@@ -272,7 +286,9 @@
                         </div>
                     </div>
                 </div>
-                <input class="final" type="submit" name="vazio" value="Cadastrar">
+                <div class="marge">
+                    <input class="final" type="submit" name="vazio" value="Cadastrar" />
+                </div>
             </form>
         </div>
 
@@ -284,7 +300,7 @@
                         <div class="formc">
                             <div class="info"><label for="">Cliente:</label></div>
                             <div class="inputcadastro">
-                                <select name="id_cliente">
+                                <select id="sel" name="id_cliente">
                                     <?php
                                     include('conexao.php');
 
@@ -310,12 +326,12 @@
                         </div>
                         <div class="formc">
                             <div class="info"><label for="">Valor:</label></div>
-                            <div class="inputcadastro"><input type="number" name="valor" step=".01" required></div>
+                            <div class="inputcadastro"><input type="number" step=".01" name="valor" required></div>
                         </div>
                         <div class="formc">
                             <div class="info"><label for="">Forma de pagamento:</label></div>
                             <div class="inputcadastro">
-                                <select name="forma_pagamento">
+                                <select id="sel" name="forma_pagamento">
                                     <option value="pix/ted/doc">PIX/TED/DOC</option>
                                     <option value="boleto">Boleto</option>
                                     <option value="cartao_credito">Cartão de Crédito</option>
@@ -326,7 +342,7 @@
                         <div class="formc">
                             <div class="info"><label for="">Tipo de Registro:</label></div>
                             <div class="inputcadastro">
-                                <select name="tipo_de_conta">
+                                <select id="sel" name="tipo_de_conta">
                                     <option value="receita">Receita</option>
                                     <option value="despesa_fixa">Despesa Fixa</option>
                                     <option value="despesa_variavel">Despesa Variável</option>
@@ -336,13 +352,13 @@
 
                     </div>
                 </div>
-                <input class="final" type="submit" name="vazio" value="Cadastrar" />
+                <div class="marge">
+                    <input class="final" type="submit" name="vazio" value="Cadastrar" />
+                </div>
             </form>
         </div>
 
     </div>
-
-
 
 </body>
 

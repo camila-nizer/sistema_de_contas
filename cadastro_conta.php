@@ -16,7 +16,7 @@
     	
 
         $sql="INSERT INTO contas (id_cliente_fk, descricao, vencimento, valor, forma_pagamento, status_pagamento, tipo_de_conta,status_conta) 
-                VALUES ('$id_cliente_fk', '$descricao', '$vencimento','$valor', '$forma_pagamento','$status_pagamento','$tipo_de_conta','$status_conta')";
+                VALUES ('$id_cliente_fk', '$descricao', '$vencimento', '$valor', '$forma_pagamento','$status_pagamento','$tipo_de_conta','$status_conta')";
 
 
         if(mysqli_query($conexao, $sql)){

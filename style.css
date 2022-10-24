@@ -30,7 +30,7 @@ header {
 }
 
 .total {
-    width: 46%;
+    width: 40%;
     margin: auto;
     background-color: #fff;
     display: flex;
@@ -69,66 +69,20 @@ header {
     cursor: pointer;
 }
 
-/* SEGURA DATA E REGISTROS */
+/* SEGURA REGISTROS */
 .fora2 {
     margin-top: 40px;
     width: 100%;
     display: flex;
 }
 
-/* AGRUPA INPUTS DA DATA */
-.data {
-    padding: 10px 1px 5px 1px;
-    width: 7%;
-    margin: auto;
-    background-color: #fff;
-    text-align: center;
-    box-shadow: 0px 0px 1px #000;
-    border-radius: 6px;
-}
-
-.cent {
-    width: 100%;
-}
-
-/* arruma o espaçamento dos inputs data */
-.linha {
-    display: flex;
-    margin-top: 13px;
-}
-
-.linha:first-child {
-    margin-top: 3px;
-}
-
-.linha:last-of-type {
-    margin-bottom: 15px;
-}
-
-.but1 {
-    letter-spacing: 1px;
-    padding: 6px 1px;
-    font-size: 12px;
-    border-radius: 6px;
-    width: 90%;
-    margin: auto;
-    background-color: #000;
-    color: #fff;
-}
-
-.but1:hover {
-    background-color: #000000b6;
-    color: #fff;
-}
-
-/*--------------------------*/
 
 /* EXPOSIÇÃOREGISTROS DO BANCO DE DADOS */
 .registros {
-    width: 95%;
+    width: 90%;
     background-color: #fff;
     margin: auto;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
     box-shadow: 0px 0px 1px #000;
     border-radius: 6px;
 }
@@ -165,7 +119,6 @@ header {
 .nome:hover {
     background-color: #fff;
     color: #000;
-    cursor: pointer;
     transition: 0.5s;
 }
 
@@ -174,6 +127,12 @@ header {
     text-decoration: none;
     color: #000;
     cursor: pointer;
+}
+
+#pag{
+    width: 100%;
+    height: 100%;
+    font-size: 17px;
 }
 
 /* id para pagina ativa */
@@ -191,9 +150,21 @@ header {
 
 
 /* fundo da exibição dos registros */
+#tabela {
+    padding: 6px;
+    width: 97.5%;
+    min-height: 0px;
+    overflow: hidden;
+    background-color: #ebebeb;
+    margin: auto;
+    border-radius: 6px 6px 0px 0px;
+    transform: translateY(5px);
+}
+
 .fora4 {
-    padding: 0px;
-    width: 97%;
+    padding: 6px;
+    width: 97.5%;
+    min-height: 300px;
     max-height: 300px;
     overflow-y: scroll;
     background-color: #d8d7d7;
@@ -201,9 +172,27 @@ header {
     border-radius: 6px;
 }
 
+@media(max-width:1300px) {
+    #tabela {
+        visibility: hidden;
+    }
+    .fora4{
+        transform: translateY(-40px);
+        min-height: 208px;
+    }
+    .registros{
+        padding-bottom: 0px;
+        height: 290px;
+    }
+}
+
 @media(max-width:1090px) {
     .fora4 {
         overflow-x: scroll;
+    }
+
+    #tabela {
+        visibility: hidden;
     }
 
     .nome {
@@ -242,11 +231,46 @@ header {
     margin: auto;
     display: flex;
     width: 98%;
+    max-height: 40px;
     font-size: 17px;
-    min-width: 858px;
+    min-width: 1604px;
     color: #000;
     background-color: #fff;
 }
+
+#cabecalho {
+    padding: 0px 10px;
+    margin: auto;
+    display: flex;
+    width: 98%;
+    font-size: 17px;
+    min-width: 1604px;
+    color: #000;
+    background-color: #ebebeb;
+}
+
+.inforeg {
+    width: 12%;
+    margin: auto;
+    text-align: center;
+}
+
+.inforeg2 {
+    width: 12%;
+    margin: auto;
+    text-align: center;
+}
+
+.inforeg3 {
+    width: 10%;
+    margin: auto;
+    text-align: center;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
 
 @media(max-width:1190px) {
     .expor {
@@ -254,175 +278,6 @@ header {
     }
 }
 
-/* input para exclusão*/
-.inp {
-    width: 2%;
-}
-
-input[type="checkbox"] {
-    margin-right: 3px;
-    transform: translate(-1px, 10px);
-    appearance: none;
-    color: #fff;
-    width: 12px;
-    height: 12px;
-    border: 1px solid #fff;
-    border-radius: 50%;
-    display: grid;
-    background-color: #fff;
-    place-content: center;
-}
-
-input[type="checkbox"]::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    transform: scale(0);
-    transition: 0.1s transform ease-in-out;
-    background-color: #000;
-    border: 1px solid #fff;
-    border-radius: 50%;
-}
-
-input[type="checkbox"]:checked::before {
-    transform: scale(1);
-}
-
-/*--------------------------*/
-
-
-input[id='data']:after {
-    padding: 6px 0px;
-    text-align: center;
-    width: 75px;
-    left: -31px;
-    position: relative;
-    background-color: #D9D9D9;
-    display: inline-block;
-    border: 0px;
-    border-radius: 6px;
-    font-size: 13px;
-}
-
-input[value="001"]:after {
-    content: 'Janeiro';
-}
-
-input[value="002"]:after {
-    content: 'Fevereiro';
-}
-
-input[value="003"]:after {
-    content: 'Março';
-}
-
-input[value="004"]:after {
-    content: 'Abril';
-}
-
-input[value="005"]:after {
-    content: 'Maio';
-}
-
-input[value="006"]:after {
-    content: 'Junho';
-}
-
-input[value="007"]:after {
-    content: 'Julho';
-}
-
-input[value="008"]:after {
-    content: 'Agosto';
-}
-
-input[value="009"]:after {
-    content: 'Setembro';
-}
-
-input[value="010"]:after {
-    content: 'Outubro';
-}
-
-input[value="011"]:after {
-    content: 'Novembro';
-}
-
-input[value="012"]:after {
-    content: 'Dezembro';
-}
-
-input[id='data']:checked:after {
-    position: relative;
-    color: #fff;
-    background-color: #000;
-}
-
-/* RESPONSIVIDADE */
-/* INPUT RADIO EM TELA PEQUENA */
-@media(max-width: 1210px) {
-
-
-    input[type='radio']:after {
-        width: 40px;
-        left: -13px;
-    }
-
-    input[value="001"]:after {
-        content: 'Jan';
-    }
-
-    input[value="002"]:after {
-        content: 'Fev';
-    }
-
-    input[value="003"]:after {
-        content: 'Mar';
-    }
-
-    input[value="004"]:after {
-        content: 'Abr';
-    }
-
-    input[value="005"]:after {
-        content: 'Mai';
-    }
-
-    input[value="006"]:after {
-        content: 'Jun';
-    }
-
-    input[value="007"]:after {
-        content: 'Jul';
-    }
-
-    input[value="008"]:after {
-        content: 'Ago';
-    }
-
-    input[value="009"]:after {
-        content: 'Set';
-    }
-
-    input[value="010"]:after {
-        content: 'Out';
-    }
-
-    input[value="011"]:after {
-        content: 'Nov';
-    }
-
-    input[value="012"]:after {
-        content: 'Dez';
-    }
-}
-
-/* INPUT RADIO EM TELA GRANDE */
-@media(min-width: 1500px) {
-    .data {
-        width: 95px;
-    }
-}
 
 /* TESTE BOTÕES */
 .fora6 {
@@ -444,19 +299,27 @@ input[id='data']:checked:after {
 }
 
 .final {
-    width: 20%;
+    font-size: 15px;
+    width: 100%;
     margin-top: 10px;
-    margin-bottom: 6px;
     padding: 5px;
-    border-radius: 6px;
+    border-radius: 10px;
     background-color: #D9D9D9;
+    box-shadow: 0.5px 0.5px 3px #7c7c7c;
+    letter-spacing: 0.5px;
+}
+
+.marge{
+    width: 25%;
+    margin: auto;
 }
 
 .final:hover {
-    background-color: #000;
+    background-color: #3ab840a9;
     color: #fff;
     transition: 0.3s;
     cursor: pointer;
+    box-shadow: 0.5px 0.5px 3px #3ab840a9;
 }
 
 /* SELECT */
@@ -477,24 +340,23 @@ select[name="ano"] {
 /* CADASTRO DE CLIENTES */
 .fora7 {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 30px;
     margin-bottom: 10px;
     display: flex;
 }
 
 .cadastro {
     background-color: #fff;
-    width: 45%;
+    width: 40%;
     margin: auto;
     box-shadow: 0px 0px 1px #000;
     border-radius: 6px;
     padding-bottom: 10px;
 }
 
-.cadastro:nth-child(2) {
+.cadastro:nth-child(2){
     margin-top: 0px;
 }
-
 
 .cad {
     background-color: #D9D9D9;
@@ -506,7 +368,7 @@ select[name="ano"] {
 }
 
 .formcadastro {
-    width: 80%;
+    width: 85%;
     margin: auto;
     padding: 5px;
     border-radius: 6px;
@@ -532,10 +394,9 @@ select[name="ano"] {
     width: 50%;
 }
 
-select[name="tipo_de_conta"],
-select[name="registro"],
-select[name="forma_pagamento"],
-select[name="id_cliente"] {
+
+
+select[id="sel"] {
     border: 0.1px solid #000;
     border-radius: 6px;
     padding: 3px;
@@ -543,10 +404,8 @@ select[name="id_cliente"] {
     width: 103%;
 }
 
-select[name="tipo_de_conta"]:focus,
-select[name="registro"]:focus,
-select[name="forma_pagamento"]:focus,
-select[name="id_cliente"]:focus,
+input[type="email"]:focus,
+select[id="sel"]:focus,
 input[type="number"]:focus,
 input[type="date"]:focus,
 input[type="text"]:focus {
@@ -568,6 +427,23 @@ input[id="pag"] {
     background: none;
 }
 
+.pagar{
+    padding: 2px 4px;
+    color: #000;
+    background-color: #D9D9D9;
+    border-radius: 2px;
+}
 
-/* EXIBIÇÃO REGISTROS */
+#pago:hover{
+    background-color: #3ab840a9;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.3s;
+}
 
+#excluir:hover{
+    background-color: #aa0101a2;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.3s;
+}
